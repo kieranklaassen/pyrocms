@@ -511,6 +511,19 @@ class Template
 	}
 
 	/**
+	 * add_theme_location
+	 * Set another location for themes to be looked in
+	 *
+	 * @access	public
+	 * @param	 string	$view
+	 * @return	array
+	 */
+	public function clear_theme_locations()
+	{
+		$this->_theme_locations = array();
+	}
+
+	/**
 	 * theme_exists
 	 * Check if a theme exists
 	 *

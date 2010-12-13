@@ -37,9 +37,21 @@ class Admin_Controller extends MY_Controller
 			$this->template->modules = $grouped_modules;
 		}
 
+		
+
+		$this->template->clear_theme_locations();
+		$this->template->add_theme_location(BASEPATH.'admin/themes');
+
+		$this->template->set_theme('default');
+		$this->asset->set_theme('default');
+
+		// Asset library needs to know where the theme directory is
+		$this->config->set_item('theme_asset_dir', '/'.dirname($this->theme->path).'/');
+		$this->config->set_item('theme_asset_url', dirname($this->theme->web_path).'/');
+
 	    // Template configuration
 		$this->template
-			->set_layout('default', 'admin')
+			->set_layout('default')
 			->enable_parser(FALSE)
 
 	    	->append_metadata( css('admin/style.css') )
